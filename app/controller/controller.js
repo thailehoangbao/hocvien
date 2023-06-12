@@ -62,7 +62,10 @@ const layThongTinGiangVien = () => {
     const address = domID('addressGV').value;
     const email = domID('emailGV').value;
     const soNgayLam = domID('ngayLam').value;
-    const luongNgay = domID('luongNgay').value;
+    const luongNgay = domID('luongNgay').value.toLocaleString('vi', {
+        style: 'currency',
+        currency: 'VND'
+    });
     const type = 2;
 
     /**
@@ -102,7 +105,10 @@ const layThongTinKhachHang = () => {
     const address = domID('addressKH').value;
     const email = domID('emailKH').value;
     const tenCty = domID('tenCty').value;
-    const hoaDon = domID('hoaDon').value;
+    const hoaDon = domID('hoaDon').value.toLocaleString('vi', {
+        style: 'currency',
+        currency: 'VND'
+    });
     const danhGia = domID('danhGia').value;
     const type = 3;
 

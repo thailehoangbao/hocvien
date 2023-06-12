@@ -1,6 +1,6 @@
 // Lớp Person
 class Person {
-    constructor(id,name, address, email) {
+    constructor(id, name, address, email) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -10,8 +10,8 @@ class Person {
 
 // Lớp Student kế thừa từ lớp Person
 class Student extends Person {
-    constructor(id,name, address, email, math, physics, chemistry,type) {
-        super(id,name, address, email);
+    constructor(id, name, address, email, math, physics, chemistry, type) {
+        super(id, name, address, email);
         this.toan = math;
         this.ly = physics;
         this.hoa = chemistry;
@@ -27,8 +27,8 @@ class Student extends Person {
 
 // Lớp Employee kế thừa từ lớp Person
 class Employee extends Person {
-    constructor(id,name, address, email, workDays, dailySalary,type) {
-        super(id,name, address,email);
+    constructor(id, name, address, email, workDays, dailySalary, type) {
+        super(id, name, address, email);
         this.soNgayLam = workDays;
         this.luongNgay = dailySalary;
         this.sumSalary = 0;
@@ -36,15 +36,18 @@ class Employee extends Person {
     }
 
     calculateSalary() {
-        this.sumSalary = Number(this.soNgayLam * this.luongNgay);
+        this.sumSalary = Number(this.soNgayLam * this.luongNgay).toLocaleString('vi', {
+            style: 'currency',
+            currency: 'VND'
+        });
         return this.sumSalary;
     }
 }
 
 // Lớp Customer kế thừa từ lớp Person
 class Customer extends Person {
-    constructor(id,name, address, email, companyName, invoiceValue, rating,type) {
-        super(id,name, address, email);
+    constructor(id, name, address, email, companyName, invoiceValue, rating, type) {
+        super(id, name, address, email);
         this.tenCty = companyName;
         this.hoaDon = invoiceValue;
         this.danhGia = rating;
@@ -52,4 +55,4 @@ class Customer extends Person {
     }
 }
 
-export {Person,Student,Employee,Customer};
+export { Person, Student, Employee, Customer };
